@@ -66,12 +66,15 @@ namespace ConsoleApp1
             for (int i = 0; i < this.NumberOfTarif; i++)
             {
                 this.tarifdata[i, 0] = i + 1;
-                Console.WriteLine($"Введите время начала тарифа под номером ({i + 1})");
-                this.tarifdata[i, 1] = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Введите время начала тарифа под номером ({i + 1}) (формат ЧЧ:ММ):");
+                if (TimeSpan.TryParseExact(Console.ReadLine(), @"hh\:mm", null, out TimeSpan result))
+                {
+                    this.tarifdata[i, 1] = (int)result.TotalMinutes; // Храним в минутах
+                }
 
             }
             for (int i = 0; i < this.NumberOfTarif; i++)
-                Console.WriteLine($"Тариф {this.tarifdata[i, 0]} начинается в {this.tarifdata[i, 1]}");
+                Console.WriteLine($"Тариф {this.tarifdata[i, 0]} начинается в {this.tarifdata[i, 1]/60}:{this.tarifdata[i, 1] % 60}");
 
 
         }
