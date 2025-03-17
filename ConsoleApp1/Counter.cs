@@ -51,9 +51,9 @@ namespace ConsoleApp1
         public string ReadTime()
         {
             DateTime now = DateTime.Now;
-            string formated_now = now.ToString("dd.MM.yyyy HH:mm:ss");
-            Console.WriteLine($"Считанное время с ПК: ({formated_now})");
-            return formated_now;
+            string formatedNow = now.ToString("dd.MM.yyyy HH:mm:ss");
+            Console.WriteLine($"Считанное время с ПК: ({formatedNow})");
+            return formatedNow;
         }
 
         public void BookTime()
